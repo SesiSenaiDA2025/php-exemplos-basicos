@@ -35,9 +35,17 @@
             die("Falha na conexão: " . $conn->connect_error);
         }
 
+        // Insere o registro no BD
+        $sql = "INSERT INTO clientes (nome, email) VALUES ('$nome','$email')";
 
-        // Digitar PHP + SQL (1º Aqui)
+        if ($conn->query($sql) === TRUE) {
+            echo "<p style='color: Darkgreen;'>Cliente cadastrado com sucesso!</p>";
+        } else {
+            echo "<p style='color: red;'>Erro ao cadastrar</p>";
+        }
 
+        // Fecha a conexão
+        $conn->close();
 
     }
     ?>

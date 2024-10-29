@@ -20,8 +20,23 @@
 
     <?php
 
-    // Digitar PHP (1º Aqui)
-    
+    // Verifica se o formulário foi enviado
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // Recebe os valores enviados pelo formulário
+        $nome = $_POST['nome'];
+        $email = $_POST['email'];
+        $mensagem = $_POST['mensagem'];
+
+        // Valida se os campos não estão vazios e se o e-mail é válido
+        if (!empty($nome) && !empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) && !empty($mensagem) ) {
+
+            echo "<p style='color: Darkgreen;'>Feedback enviado com sucesso!</p>";
+
+        }else{
+
+            echo "<p style='color: red;'>Preencha, todos os campos corretamente!</p>";
+        }
+    }
     ?>
 </body>
 </html>
