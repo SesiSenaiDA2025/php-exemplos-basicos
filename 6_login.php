@@ -41,9 +41,9 @@
         // Fecha o arquivo
         fclose($arquivo);
 
-        // Exibe a mensagem de sucesso ou erro
+        // Exibe a mensagem (Feedback) de sucesso ou erro
         if ($login_sucesso) {
-            echo "<p>Login realizado com sucesso! Bem-vindo, $nome!</p>";
+            echo "<p style='color: darkgreen;'>Login realizado com sucesso!<br> Bem-vindo, $nome!</p>";
         } else {
             echo "<p style='color: red;'>Usuário ou senha incorretos.</p>";
         }
