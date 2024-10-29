@@ -1,5 +1,5 @@
 <!-- Passar id via URL -->
-<!-- http://localhost/php-basico-out-2024/12_atualizar.php?id=1-->
+<!-- http://localhost/php-exemplos-basicos/12_atualizar.php?id=1-->
 
 
 <?php
@@ -34,10 +34,24 @@ if (isset($_GET['id'])) {
     }
 }
 
+    // Verifica se o formulário foi enviado
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // Recebe os valores enviados pelo formulário
+        $id = $_POST['id'];
+        $nome = $_POST['nome'];
+        $email = $_POST['email']; 
 
-// Digitar PHP + SQL (1º Aqui)
+        // SQL de Atualização
+        $sql = "UPDATE clientes SET nome='$nome', email='$email' WHERE id='$id'";
 
+        // Mensagem (Feedback Para usuário)
+        if ($conn->query($sql) === TRUE) {
+            echo "<p>Cliente atualizado com sucesso!</p>";
+        } else {
+            echo "<p>Erro ao atualizar cliente: " .$conn->error ."</p>";
+        }
 
+    } 
 ?>
 
 <!DOCTYPE html>
