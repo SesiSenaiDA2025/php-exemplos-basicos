@@ -2,7 +2,13 @@
 // Página de logout (15c_logout.php)
 
 
-// Digitar PHP (1º Aqui)
+session_start();
+
+// Finaliza a sessão
+session_destroy();
+
+// Redireciona forçando um novo login
+header("Location: 15a_sistema.php")
 
 
 ?>
